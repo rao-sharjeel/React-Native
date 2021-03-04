@@ -1,0 +1,102 @@
+import * as React from 'react';
+import React, { Component } from 'react';
+import { Button, View, Text, ScrollView, FlatList, TouchableOpacity, Alert, StyleSheet, Image, TextInput } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state={
+          // showSearchField:false,
+          // searchArray:[],
+        }
+  }
+
+
+
+  componentDidMount(){
+  }
+
+  actSearch(text){
+  }
+
+  actionTextBlur(){
+  }
+
+  render(){
+
+    var arrayforFlatList = [
+      {key:0,city:'Lahore',country:'Pakistan'},
+      {key:1,city:'Karachi',country:'Pakistan'},
+      {key:2,city:'Islamabad',country:'Pakistan'},
+      {key:3,city:'Faisalabad',country:'Pakistan'},
+      {key:4,city:'Multan',country:'Pakistan'},
+      {key:5,city:'Lahore',country:'Pakistan'},
+      {key:6,city:'Karachi',country:'Pakistan'},
+      {key:7,city:'Islamabad',country:'Pakistan'},
+      {key:8,city:'Faisalabad',country:'Pakistan'},
+      {key:9,city:'Multan',country:'Pakistan'},
+    ];
+
+    function HomeScreen() {
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Home!</Text>
+        </View>
+      );
+    }
+    
+    function SettingsScreen() {
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Settings!</Text>
+        </View>
+      );
+    }
+
+    return(
+      <View style={{flex:1,backgroundColor:'Black',justifyContent:'center',}}>
+        <View style={{flex:9,backgroundColor:'#eeeeee',justifyContent:'center',}}>
+
+
+          <FlatList
+
+            data={arrayforFlatList}
+
+            renderItem={
+
+              ({item}) =>
+
+                <View style={{flex:2,paddingRight:6,paddingLeft:6,paddingBottom:10,paddingTop:10,justifyContent:'center',height:80, font:15,}}>
+                  <Text style={{color:'white',fontStyle:'italic',backgroundColor:'dodgerblue'}}>{item.city}</Text>
+                  <Text style={{backgroundColor:'lightblue'}}>{item.country}</Text>
+                </View>
+
+            }
+
+          />
+
+        </View>
+        
+        <View style = {{flex:1,paddingBottom:10, paddingTop:10,}}>
+
+        <NavigationContainer>
+          <Tab.Navigator>
+            <Tab.Screen name="Home" component={HomeScreen} />
+            <Tab.Screen name="Settings" component={SettingsScreen} />
+          </Tab.Navigator>
+        </NavigationContainer>
+
+        </View>
+
+
+      </View>
+        
+        
+      );
+    }
+}
+
+export default App;
