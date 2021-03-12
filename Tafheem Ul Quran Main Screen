@@ -1,0 +1,167 @@
+import React, { Component } from 'react';
+import { Button, View, Text, ScrollView, FlatList, TouchableOpacity, Alert, StyleSheet, Image, TextInput } from 'react-native';
+
+class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state={
+          // showSearchField:false,
+          // searchArray:[],
+        }
+  }
+
+  componentDidMount(){
+  }
+
+  actSearch(text){
+  }
+
+  actionTextBlur(){
+  }
+
+  render(){
+
+    var arrayforFlatList = [
+      {key:0,city:'Lahore',country:'Pakistan'},
+      {key:1,city:'Karachi',country:'Pakistan'},
+      {key:2,city:'Islamabad',country:'Pakistan'},
+      {key:3,city:'Faisalabad',country:'Pakistan'},
+      {key:4,city:'Multan',country:'Pakistan'},
+      {key:5,city:'Lahore',country:'Pakistan'},
+      {key:6,city:'Karachi',country:'Pakistan'},
+      {key:7,city:'Islamabad',country:'Pakistan'},
+      {key:8,city:'Faisalabad',country:'Pakistan'},
+      {key:9,city:'Multan',country:'Pakistan'},
+      {key:10,city:'Lahore',country:'Pakistan'},
+      {key:11,city:'Karachi',country:'Pakistan'},
+      {key:12,city:'Islamabad',country:'Pakistan'},
+      {key:13,city:'Faisalabad',country:'Pakistan'},
+      {key:14,city:'Multan',country:'Pakistan'},
+      {key:15,city:'Lahore',country:'Pakistan'},
+      {key:16,city:'Karachi',country:'Pakistan'},
+      {key:17,city:'Islamabad',country:'Pakistan'},
+      {key:18,city:'Faisalabad',country:'Pakistan'},
+      {key:19,city:'Multan',country:'Pakistan'},
+    ];  
+
+    return(
+
+
+      <View style={{flex:1,backgroundColor:'#eeeeee', flex: 1, flexDirection:'column',}}>
+
+        
+        <View style = {styles.topBar} >
+          <View style = {{flex:1,}}>
+            <Image 
+            
+            style = {{alignSelf:'center', paddingTop: 10, marginTop: 5}}
+            
+            source={{
+              height: 30,
+              width: 30, 
+              uri : 'https://i.pinimg.com/originals/73/15/da/7315da676f55e4707ea1766bdbd4e110.png',
+            }} />
+          </View>
+          <Text style = {{flex: 6, textAlign: 'center', fontSize: 25, color:'black', alignSelf:'center'}}> 
+            Tafheem Ul Quran
+          </Text>
+          <View style = {{flex:1, }}>
+          <Image style = {{alignSelf:'center', marginTop:8,  paddingTop: 5}}
+          
+          
+          source={{
+            height: 30,
+            width: 30,
+            
+            
+            uri : 'https://www.freeiconspng.com/uploads/settings-icon-11.png',
+          }}/>
+        </View>
+
+        </View>
+
+        <View style = {styles.secondBar}>
+
+          <Text style = {{ fontSize: 20, color:'white', textAlignVertical: 'center', textAlign:'left', paddingTop:4, paddingLeft: 30}}>Search Surah name or number</Text>
+
+        </View>
+        
+        <View style = {styles.flat}>
+        <FlatList
+        
+
+          data={arrayforFlatList}
+
+          renderItem={
+
+            ({item}) =>
+
+              <View  style = {styles.tiles}>
+                <Text style={{color:'Black', fontSize: 25, flex: 1, textAlign: 'center', alignSelf: 'center'}}>{item.key+1}</Text>
+                
+                <View style={{flex: 4}} >
+                  <Text style={{color:'Black',fontStyle:'italic',fontSize: 25, flex: 7}}>{item.city}</Text>
+                  <Text style={{color:'Black',fontSize: 15, flex:4}}>{item.city}</Text>
+                </View>
+            
+                <View>
+                  <Text style={{color:'Black',fontSize: 25, flex: 4, alignSelf: 'center', margin: 5,}}>{item.city}</Text>
+                </View>
+              </View>
+
+          }
+
+        />
+        </View>
+      </View>
+      );
+    }
+}
+
+const styles=StyleSheet.create({
+    topBar:{
+      backgroundColor:"dodgerblue",
+      textAlign:'center',
+      fontSize: 13,
+      color:'white',
+      flexDirection: 'row',
+      flex:1.5
+    },
+
+    tiles:{
+      flex: 1,
+      paddingRight:6,
+      paddingLeft:6, 
+      height: 70,
+      backgroundColor:'white',
+      paddingBottom:5,
+      paddingTop:5,
+      borderWidth:2, 
+      borderColor: 'lightgrey',
+      flexDirection: "row",
+      borderRadius:10, 
+      marginTop:2,
+      marginBottom:0,
+    },
+  
+    flat:{
+    flex:24,
+    paddingTop: 2,
+    flexDirection:'column',
+    backgroundColor:"lightgrey",
+  },
+
+  secondBar:{
+    flex:1.3,
+    borderWidth: 1,
+    borderColor: 'darkgrey',
+    backgroundColor:'lightgray',
+
+  }
+
+  })
+
+
+
+export default App;
